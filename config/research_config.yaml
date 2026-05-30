@@ -1,0 +1,181 @@
+# ══════════════════════════════════════════════════════════════
+# 兩津投資公司 — 產業研究設定檔
+# Sector Signal OS v1.0
+#
+# 【選題邏輯】
+#   產業方向「每月重新决定」，不是維護固定清單。
+#   每月第一週先執行「市場訊號掃描」：
+#     /last30days semiconductor investment themes trending Reddit HN investor discussion
+#   根據結果在月會討論，選定本月 3 個產業方向再填進來。
+#   選題標準：市場訊號熄度 + 尚未充分定價的機會 + 台灣供應鏈是否有受益標的
+#   成員背景只是「負責驗證」，不是選題理由。
+#
+# 使用說明：
+#   每月月會後由黎董更新此檔案，git push 即觸發下次報告生成
+#
+# 最後更新：2026-05
+# ══════════════════════════════════════════════════════════════
+
+月份: "2026-06"
+
+# 本月選題說明（每月月會後填寫）
+選題說明:
+  掃描日期: "2026-05-27"
+  本月選定產業:
+    - "AI 伺服器供應鏈"
+    - "HBM 記憶體 / CoWoS 封裝"
+    - "Custom Silicon 崛起（AVGO/TSM）"
+  選題理由:
+    - "AI 伺服器供應鏈：本月掃描前三大熱點主題（HBM、Capex、Custom Silicon）均指向此產業。CSP CapEx 持續上修，中游供應鏈如台達電、賿聯可能尚未充分反映。"
+    - "HBM 記憶體：HBM 市場規模破兆帶動 Reddit / HN 大量討論，SK Hynix 供應鏈定價能力強，台積電 CoWoS 封裝產能拘緋可能尚未充分反映。"
+    - "Custom Silicon：AVGO / TSM 自設晶片語報熱度升溫，CSP 自行設計趨勢對 NVIDIA 構成長期競爭，台積電封裝產能為關鍵分析點。"
+  排除的熱門話題:
+    - "SOX+65% YTD 估値泡沫辦論：市場討論熱度高但結論分散，本月可先居觀。"
+    - "RISC-V 開源矽 + 半導體製造業自動化：5-10 年長期主題，目前投資機會不清晰，適合下季備研。"
+
+# ──────────────────────────────────────────────────────────────
+# 全域設定
+# ──────────────────────────────────────────────────────────────
+全域設定:
+  報告語言: "繁體中文"
+  搜尋時間範圍: 30  # 天
+  每產業最多訊號數: 5
+  噪音過濾:
+    - "排除純市場情緒，無財報數字佐證的文章"
+    - "排除超過 60 天的舊新聞"
+    - "排除無來源的社群謠言"
+  本月全域指示:
+    - "法說會季節（Q1 results），特別注意 guidance 與 outlook 變化"
+    - "注意美中貿易政策對台灣供應鏈的最新影響"
+
+# ──────────────────────────────────────────────────────────────
+# 產業方向清單
+# 狀態選項：進行中 / 暫停 / 新增 / 觀察中
+# 優先級：高 / 中 / 低
+# ──────────────────────────────────────────────────────────────
+產業方向:
+
+  - 名稱: "AI 伺服器供應鏈"
+    狀態: "進行中"
+    優先級: "高"
+    負責成員: ""  # 月會分配
+    核心關鍵字:
+      - "AI server power supply"
+      - "liquid cooling GPU rack"
+      - "CSP capex hyperscaler"
+      - "data center infrastructure 2026"
+    額外聚焦:  # 本月特別注意
+      - "NVIDIA GB300 supply chain"
+      - "AMD MI350X deployment"
+      - "sovereign AI infrastructure"
+    排除關鍵字:
+      - "SMCI controversy audit"
+    台股觀察名單:
+      - ticker: "2308"
+        名稱: "台達電"
+        層級: "A"  # A=直接相關 B=間接相關 C=題材相關
+      - ticker: "3665"
+        名稱: "貿聯"
+        層級: "A"
+      - ticker: "6449"
+        名稱: "鈺邦"
+        層級: "B"
+      - ticker: "2382"
+        名稱: "廣達"
+        層級: "B"
+      - ticker: "3044"
+        名稱: "健鼎"
+        層級: "B"
+      - ticker: "2301"
+        名稱: "光寶科"
+        層級: "C"
+    美股觀察名單:
+      - ticker: "VRT"
+        名稱: "Vertiv"
+        層級: "A"
+      - ticker: "NVDA"
+        名稱: "NVIDIA"
+        層級: "A"
+      - ticker: "ANET"
+        名稱: "Arista Networks"
+        層級: "B"
+      - ticker: "AMD"
+        名稱: "AMD"
+        層級: "B"
+    備註: ""
+
+  - 名稱: "被動元件 / 電源元件"
+    狀態: "進行中"
+    優先級: "中"
+    負責成員: "林瀚淵"
+    核心關鍵字:
+      - "MLCC passive components supply demand"
+      - "tantalum capacitor aluminum capacitor"
+      - "passive component pricing 2026"
+      - "AI server passive components"
+    額外聚焦:
+      - "automotive MLCC demand recovery"
+      - "China MLCC overcapacity impact"
+    排除關鍵字: []
+    台股觀察名單:
+      - ticker: "6449"
+        名稱: "鈺邦"
+        層級: "A"
+      - ticker: "2327"
+        名稱: "國巨"
+        層級: "A"
+      - ticker: "2492"
+        名稱: "華新科"
+        層級: "B"
+      - ticker: "6173"
+        名稱: "信昌電"
+        層級: "B"
+    美股觀察名單:
+      - ticker: "VSH"
+        名稱: "Vishay"
+        層級: "B"
+    備註: "台灣在地訊號為主，last30days 輔助國際輿論"
+
+  - 名稱: "CMOS 影像感測器 / Edge Vision"
+    狀態: "進行中"
+    優先級: "中"
+    負責成員: "黃淑華"
+    核心關鍵字:
+      - "CMOS image sensor CIS market 2026"
+      - "security camera edge AI vision"
+      - "automotive imaging sensor"
+      - "NIR sensor machine vision"
+    額外聚焦:
+      - "AI camera demand enterprise security"
+      - "Sony CIS market share 2026"
+    排除關鍵字: []
+    台股觀察名單:
+      - ticker: "3466"
+        名稱: "晶相光"
+        層級: "A"
+      - ticker: "4533"
+        名稱: "原相"
+        層級: "A"
+      - ticker: "3026"
+        名稱: "奇景光電"
+        層級: "B"
+    美股觀察名單:
+      - ticker: "ON"
+        名稱: "ON Semiconductor"
+        層級: "B"
+      - ticker: "STM"
+        名稱: "STMicroelectronics"
+        層級: "B"
+    備註: "晶相光為核心觀察標的"
+
+  # ── 範例：如何新增一個產業方向 ──
+  # - 名稱: "車用半導體"
+  #   狀態: "觀察中"     ← 觀察中不會生成完整報告，只生成簡短雷達訊號
+  #   優先級: "低"
+  #   核心關鍵字:
+  #     - "automotive MCU SiC ADAS"
+  #   台股觀察名單: []
+  #   美股觀察名單:
+  #     - ticker: "ON"
+  #       名稱: "ON Semiconductor"
+  #       層級: "A"
