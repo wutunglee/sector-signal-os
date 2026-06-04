@@ -95,8 +95,21 @@ def preprocess_taiwan(md: str) -> str:
     return '\n\n'.join(result)
 
 
+def convert_md_links(text: str) -> str:
+    """把 [文字](url) 轉成 <a href="url" target="_blank">文字</a>。
+    必須在其他 Markdown 處理之前執行，避免連結內的 url 被後續規則破壞。"""
+    return re.sub(
+        r'\[([^\]]+)\]\(([^)\s]+)\)',
+        r'<a href="\2" target="_blank">\1</a>',
+        text,
+    )
+
+
 def md_to_html(md: str, title: str, is_taiwan: bool = False) -> str:
     html_body = md
+
+    # 連結：最先轉換，確保在表格／公司區塊／粗體等處理之前完成
+    html_body = convert_md_links(html_body)
 
     # 台股報告：先把公司區塊轉成 ol 結構
     if is_taiwan:
